@@ -4,6 +4,9 @@
 # Backup files
 *_backup*
 
+# Build files
+dist/
+
 # Dependencies
 node_modules/
 
