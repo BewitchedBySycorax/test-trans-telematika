@@ -10,5 +10,8 @@ dist/
 # Dependencies
 node_modules/
 
+# PDF Examples
+pdf_examples/
+
 # Temp working directory
 temp/

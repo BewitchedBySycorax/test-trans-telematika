@@ -5,7 +5,7 @@ import { File } from '../types/File';
 
 export const getFiles = async (_req: Request, res: Response): Promise<Response> => {
   try {
-    const response: QueryResult = await pool.query('SELECT * FROM files_list ORDER BY id ASC');
+    const response: QueryResult = await pool.query('SELECT title, secret, pdf_data FROM files_list ORDER BY id ASC');
     const rows: Array<File> = response.rows;
     return res.status(200).json(rows);
 
@@ -28,6 +28,7 @@ export const getFileBySecret = async (req: Request, res: Response): Promise<Resp
     res.setHeader('Content-type', 'application/pdf');
     res.setHeader('Content-disposition', `attachment; filename=${rows[0].title}.pdf`);
     res.setHeader('Content-Length', rows[0].pdf_data.length);
+
     return res.send(rows[0].pdf_data);
 
   } catch (e) {

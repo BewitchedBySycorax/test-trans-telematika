@@ -1,6 +1,6 @@
 export type File = {
-  id: number;
+  id?: number;
   title: string | null;
-  secret: string | null;
+  secret?: string | null;
   pdf_data: Buffer;
 }
